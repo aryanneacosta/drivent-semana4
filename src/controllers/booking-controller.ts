@@ -29,10 +29,10 @@ export async function roomBooking(req: AuthenticatedRequest, res: Response) {
             bookingId: booking.id
         });
     } catch (error) {
-        if(error.name === "CannotBookingError") {
-            return res.sendStatus(httpStatus.FORBIDDEN);
+        if(error.name === "NotFoundError") {
+            return res.sendStatus(httpStatus.NOT_FOUND);
         }
-        return res.sendStatus(httpStatus.NOT_FOUND);
+        return res.sendStatus(httpStatus.FORBIDDEN);
     }
 }
 
@@ -54,9 +54,9 @@ export async function changeBooking(req: AuthenticatedRequest, res: Response) {
             bookingId: booking.id
         });
     } catch (error) {
-        if(error.name === "CannotBookingError") {
-            return res.sendStatus(httpStatus.FORBIDDEN);
+        if(error.name === "NotFoundError") {
+            return res.sendStatus(httpStatus.NOT_FOUND);
         }
-        return res.sendStatus(httpStatus.NOT_FOUND);
+        return res.sendStatus(httpStatus.FORBIDDEN);
     }
 }

@@ -28,7 +28,7 @@ async function isBookingValid(roomId: number) {
     if(!room) throw notFoundError();
 
     if(room.capacity <= booking.length) {
-        throw notFoundError();
+        throw cannotBookError();
     };
 }
 
